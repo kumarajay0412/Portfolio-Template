@@ -1,118 +1,128 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
+/* eslint-disable @next/next/no-img-element */
+import Layout from "@/components/Layout";
+export default function Page() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
+    <Layout>
+      <div className="pt-8 max-w-3xl w-full">
+        <div className="text-gray-500">
+          I&apos;m a Software Engineer currently working at{" "}
           <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            className="hover:text-gray-600 cursor-pointer underline"
+            href="https://gan.ai/"
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
+            Gan.ai
           </a>
+          , where I work on building the next generation of video
+          personalization platform. I love to craft beautiful web products.
+          Previously, I have worked with amazing companies like{" "}
+          <a
+            className="hover:text-gray-600 cursor-pointer underline"
+            href="https://www.mercari.com/"
+          >
+            Mercari
+          </a>
+          ,{" "}
+          <a
+            className="hover:text-gray-600 cursor-pointer underline"
+            href="https://chartr.in/"
+          >
+            Chartr
+          </a>
+          , and{" "}
+          <a
+            className="hover:text-gray-600 cursor-pointer underline"
+            href="https://in.mathworks.com/"
+          >
+            Mathworks
+          </a>
+          .
         </div>
+
+        <div className="text-lg my-7">Experience </div>
+
+        <ol className="pl-3">
+          <li className="border-l-2 border-gray-300">
+            <div className="flex flex-start">
+              <div className="w-6 h-6 flex items-center justify-center rounded-full bg-gray-500 -ml-[13px] border-[2px] border-gray-300"></div>
+              <div className="h-[100px] px-2 md:px-4 text-md text-gray-600">
+                Software Engineer at{" "}
+                <a
+                  className="hover:text-gray-600 cursor-pointer underline"
+                  href="https://gan.ai/"
+                >
+                  Gan.ai
+                </a>
+                <br />
+                <div className="text-xs mt-2 ">Jan 2023 - Present</div>
+              </div>
+            </div>
+          </li>
+          <li className="border-l-2 border-gray-300">
+            <div className="flex flex-start">
+              <div className="w-6 h-6 flex items-center justify-center rounded-full bg-gray-300 -ml-[13px] border-[2px] border-gray-300"></div>
+              <div className="h-[100px] px-2 md:px-4 text-md text-gray-600">
+                SWE Intern at{" "}
+                <a
+                  className="hover:text-gray-600 cursor-pointer underline"
+                  href="https://www.linkedin.com/company/mercari-inc-/"
+                >
+                  Mercari
+                </a>
+                <br />
+                <div className="text-xs mt-2 ">Aug 2022 - Nov 2022</div>
+              </div>
+            </div>
+          </li>
+          <li className="border-l-2 border-gray-300">
+            <div className="flex flex-start">
+              <div className="w-6 h-6 flex items-center justify-center rounded-full bg-gray-300 -ml-[13px] border-[2px] border-gray-300"></div>
+              <div className="h-[100px] px-2 md:px-4 text-md text-gray-600">
+                EDG Intern at{" "}
+                <a
+                  className="hover:text-gray-600 cursor-pointer underline"
+                  href="https://www.linkedin.com/company/the-mathworks_2/"
+                >
+                  Mathworks
+                </a>
+                <br />
+                <div className="text-xs mt-2 ">May 2022 - Aug 2022</div>
+              </div>
+            </div>
+          </li>
+          <li className="border-l-2 border-gray-300">
+            <div className="flex flex-start">
+              <div className="w-6 h-6 flex items-center justify-center rounded-full bg-gray-300 -ml-[13px] border-[2px] border-gray-300"></div>
+              <div className="h-[100px] px-2 md:px-4 text-md text-gray-600">
+                Researcher at{" "}
+                <a
+                  className="hover:text-gray-600 cursor-pointer underline"
+                  href="https://chartr.in/"
+                >
+                  Chartr
+                </a>
+                <br />
+                <div className="text-xs mt-2 ">Aug 2021 - Jan 2023</div>
+              </div>
+            </div>
+          </li>
+          <li className="">
+            <div className="flex flex-start">
+              <div className="w-6 h-6 flex items-center justify-center rounded-full bg-gray-300 -ml-[13px] border-[2px] border-gray-300"></div>
+              <div className="h-[100px] px-2 md:px-4 text-md text-gray-600">
+                SDE Intern at{" "}
+                <a
+                  className="hover:text-gray-600 cursor-pointer underline"
+                  href="https://www.linkedin.com/company/tweek-labs/"
+                >
+                  Tweek Labs
+                </a>
+                <br />
+                <div className="text-xs mt-2 ">May 2021 - June 2021</div>
+              </div>
+            </div>
+          </li>
+        </ol>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </Layout>
   );
 }
