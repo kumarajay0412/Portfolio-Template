@@ -21,32 +21,18 @@ export default function Document() {
         <meta name="title" property="og:title" content="Ajay's Portfolio" />
         <meta
           property="og:description"
-          content="Portfolio website for Ajay, a software engineer based in India."
+          content="Portfolio website of Ajay, a software engineer based in India."
         />
-        <meta
-          name="image"
-          property="og:image"
-          content={"https://i.imgur.com/tULEdYw.png"}
-        />
+        <meta name="image" property="og:image" content="/og_image.webp" />
         {/* <!-- Twitter --> */}
-        {/* <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://gan.ai" />
-        <meta
-          property="twitter:title"
-          content="Personalized videos at scale | Gan.ai"
-        />
+        <meta property="twitter:card" content="summary_large_image" />
+        {/* <meta property="twitter:url" content="https://gan.ai" /> */}
+        <meta property="twitter:title" content="Ajay's Portfolio" />
         <meta
           property="twitter:description"
-          content="Businesses use Myna to create personalized videos and share them with users at any and every touchpoint, through a custom landing page or webhooks."
+          content="Portfolio website of Ajay, a software engineer based in India."
         />
-        <meta
-          property="twitter:image"
-          content={generateS3Url(
-            "Landing+Page/landing-videos/Homescreen+gif+2_1_1_1.gif"
-          )}
-        /> */}
-
-        {/* <!-- Meta Tags Generated with https://metatags.io --> */}
+        <meta property="twitter:image" content="/og_image.webp" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta name="theme-color" content="#0D0E12" />
         <script

@@ -65,7 +65,7 @@ function Header() {
             }}
             className={`${
               activeTab === tab.id ? "" : "hover:text-gray-600"
-            } relative cursor-pointer rounded-full px-3 py-1.5 text-sm font-medium text-black outline-sky-400 transition focus-visible:outline-2`}
+            } relative cursor-pointer  rounded-full px-3 py-1.5 text-sm font-medium text-black transition focus-visible:outline-2`}
             style={{
               WebkitTapHighlightColor: "transparent",
             }}
@@ -73,7 +73,7 @@ function Header() {
             {activeTab === tab.id && (
               <motion.span
                 layoutId="bubble"
-                className="absolute inset-0 z-10  bg-gray-100   mix-blend-difference"
+                className="safari-mix-blend !z-[10] absolute inset-0   bg-white  !mix-blend-difference "
                 style={{ borderRadius: 6 }}
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               />
