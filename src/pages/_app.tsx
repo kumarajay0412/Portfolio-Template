@@ -7,7 +7,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
   return (
     <div className=" p-3 h-screen w-screen  flex justify-start items-center flex-col  overflow-scroll">
       <Header />
-      <div className="min-h-screen ">
+      <div className="">
         <AnimatePresence mode="wait" initial={false}>
           <Component {...pageProps} key={router.asPath} />
         </AnimatePresence>

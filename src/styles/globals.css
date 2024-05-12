@@ -76,5 +76,15 @@
 }
 
 .safari-mix-blend {
-  transform: translate3d(0, 0, 0);
+  mix-blend-mode: difference;
+}
+
+.no-visible-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.no-visible-scrollbar::-webkit-scrollbar {
+  display: none;
 }

@@ -9,6 +9,8 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
+import { Tabs } from "./Tabs";
+import { TabsDemo } from "./TabsDemo";
 
 let tabs = [
   { id: "/", label: "About" },
@@ -55,7 +57,8 @@ function Header() {
         </div>
         <hr className="w-full my-4" />
       </div>
-      <div className="flex space-x-1 ">
+      {/* Is Not working properly in safari and ios problem with mix-blend-mode */}
+      {/* <div className="flex space-x-1 ">
         {tabs.map((tab) => (
           <div
             key={tab.id}
@@ -65,7 +68,7 @@ function Header() {
             }}
             className={`${
               activeTab === tab.id ? "" : "hover:text-gray-600"
-            } relative cursor-pointer  rounded-full px-3 py-1.5 text-sm font-medium text-black transition focus-visible:outline-2`}
+            } relative cursor-pointer  rounded-full px-3 py-1.5 text-sm font-medium text-black   transition-colors focus-visible:outline-2`}
             style={{
               WebkitTapHighlightColor: "transparent",
             }}
@@ -73,15 +76,19 @@ function Header() {
             {activeTab === tab.id && (
               <motion.span
                 layoutId="bubble"
-                className="safari-mix-blend !z-[10] absolute inset-0   bg-white  !mix-blend-difference "
-                style={{ borderRadius: 6 }}
+                className="= !z-[10] block  absolute inset-0   bg-white   safari-mix-blend"
+                style={{
+                  borderRadius: 6,
+                }}
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               />
             )}
             {tab.label}
           </div>
         ))}
-      </div>
+      </div> */}
+
+      <TabsDemo />
     </div>
   );
 }
