@@ -9,10 +9,10 @@ export function TabsDemo() {
       title: "About",
       value: "/",
     },
-    {
-      title: "Blogs",
-      value: "/blogs",
-    },
+    // {
+    //   title: "Blogs",
+    //   value: "/blogs",
+    // },
     {
       title: "Contact",
       value: "/contact",

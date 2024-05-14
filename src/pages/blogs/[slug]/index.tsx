@@ -6,19 +6,36 @@ import matter from "gray-matter";
 import { join } from "path";
 import markdownToHtml from "@/lib/markdownToHtml";
 
-function DynamicBlog({ post }) {
-  console.log(post);
+export type Author = {
+  name: string;
+  picture: string;
+};
+
+export type PostType = {
+  slug: string;
+  title: string;
+  date: string;
+  coverImage: string;
+  author: Author;
+  excerpt: string;
+  ogImage: {
+    url: string;
+  };
+  content: string;
+  preview?: boolean;
+};
+
+function DynamicBlog({ blog }: { blog: PostType }) {
   const router = useRouter();
   const [htmlValue, setHtmlValue] = React.useState<string>("");
   async function getMarkDown() {
-    const content = await markdownToHtml(post.content || "");
-    console.log(content);
+    const content = await markdownToHtml(blog.content || "");
     setHtmlValue(content);
   }
 
   React.useEffect(() => {
     getMarkDown();
-  }, [post]);
+  }, [blog]);
 
   console.log(htmlValue);
   return (
@@ -59,11 +76,9 @@ export const getServerSideProps = async (context: any) => {
     return posts;
   }
 
-  console.log(getPostBySlug(slug));
-
   return {
     props: {
-      post: getPostBySlug(slug),
+      blog: getPostBySlug(slug) as PostType,
     },
   };
 };
