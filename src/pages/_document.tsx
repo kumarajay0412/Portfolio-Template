@@ -17,16 +17,13 @@ export default function Document() {
           content="Portfolio website for Ajay, a software engineer based in India."
         />
         <meta property="og:type" content="website" />
-        {/* <meta property="og:url" content="https://gan.ai/" /> */}
         <meta name="title" property="og:title" content="Ajay's Portfolio" />
         <meta
           property="og:description"
           content="Portfolio website of Ajay, a software engineer based in India."
         />
         <meta name="image" property="og:image" content="/og_image.webp" />
-        {/* <!-- Twitter --> */}
         <meta property="twitter:card" content="summary_large_image" />
-        {/* <meta property="twitter:url" content="https://gan.ai" /> */}
         <meta property="twitter:title" content="Ajay's Portfolio" />
         <meta
           property="twitter:description"
