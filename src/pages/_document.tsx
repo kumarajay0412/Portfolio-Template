@@ -27,18 +27,11 @@ export default function Document() {
         <meta property="twitter:title" content="Ajay's Portfolio" />
         <meta
           property="twitter:description"
-          content="Portfolio website of Ajay, a software engineer based in India."
+          content="Hi, there I am Ajay, a software engineer based in India."
         />
         <meta property="twitter:image" content="/og_image.webp" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta name="theme-color" content="#0D0E12" />
-        <script
-          type="text/javascript"
-          id="hs-script-loader"
-          async
-          defer
-          src="//js.hs-scripts.com/23361068.js"
-        ></script>
       </Head>
       <body>
         <Main />
