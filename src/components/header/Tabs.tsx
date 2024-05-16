@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/util/common";
 import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 type Tab = {
   title: string;
@@ -26,7 +27,7 @@ export const Tabs = ({
 }) => {
   const [active, setActive] = useState<Tab>(propTabs[0]);
   const router = useRouter();
-
+  const [hovering, setHovering] = useState(false);
   const moveSelectedTabToTop = (idx: number) => {
     const newTabs = [...propTabs];
     const selectedTab = newTabs.splice(idx, 1);
@@ -34,7 +35,16 @@ export const Tabs = ({
     setActive(newTabs[0]);
   };
 
-  const [hovering, setHovering] = useState(false);
+  const pathname = usePathname();
+  useEffect(() => {
+    if (pathname === "/") {
+      setActive(propTabs[0]);
+    } else if (pathname.includes("blogs")) {
+      setActive(propTabs[1]);
+    } else if (pathname === "/contact") {
+      setActive(propTabs[2]);
+    }
+  }, [pathname]);
 
   return (
     <>

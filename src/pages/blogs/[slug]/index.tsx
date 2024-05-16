@@ -32,16 +32,18 @@ function DynamicBlog({ blog }: { blog: PostType }) {
     const content = await markdownToHtml(blog.content || "");
     setHtmlValue(content);
   }
-
+  console.log(blog);
   React.useEffect(() => {
     getMarkDown();
   }, [blog]);
 
-  console.log(htmlValue);
   return (
     <Layout>
-      <div className="pt-8  max-w-3xl w-full">
-        <div>{router.query.slug}</div>
+      <div className="pt-8  max-w-3xl w-full blogs">
+        <div className="text-[30px] font-[600] text-gray-900 mb-7">
+          {blog.title}
+        </div>
+
         <div
           // className={markdownStyles["markdown"]}
           dangerouslySetInnerHTML={{ __html: htmlValue }}

@@ -19,20 +19,6 @@ let tabs = [
 ];
 
 function Header() {
-  let [activeTab, setActiveTab] = useState(tabs[0].id);
-  const router = useRouter();
-  const pathname = usePathname();
-
-  useEffect(() => {
-    if (pathname === "/") {
-      setActiveTab(tabs[0].id);
-    } else if (pathname === "/blogs") {
-      setActiveTab(tabs[1].id);
-    } else if (pathname === "/contact") {
-      setActiveTab(tabs[2].id);
-    }
-  }, [pathname]);
-
   return (
     <div className="pt-8  max-w-3xl w-full h-fit">
       <div className="flex flex-col gap-2  justify-start w-full items-start">

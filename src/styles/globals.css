@@ -88,3 +88,23 @@
 .no-visible-scrollbar::-webkit-scrollbar {
   display: none;
 }
+.blogs {
+  h2 {
+    @apply text-xl font-[600] my-4;
+  }
+
+  p {
+    @apply text-base;
+  }
+
+  img {
+    width: 100%;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
