@@ -65,15 +65,11 @@ export const Tabs = () => {
             {active.value === tab.value && (
               <motion.div
                 layoutId="clickedbutton"
-                transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
-                className={cn(
-                  "absolute inset-0 bg-gray-300 dark:bg-zinc-800 rounded-md "
-                )}
+                transition={{ type: "spring", bounce: 0.3, duration: 0.4 }}
+                className={cn("absolute inset-0 bg-gray-300  rounded-md ")}
               />
             )}
-            <span className="relative block text-black dark:text-white">
-              {tab.title}
-            </span>
+            <span className="relative block text-black">{tab.title}</span>
           </button>
         ))}
       </div>
