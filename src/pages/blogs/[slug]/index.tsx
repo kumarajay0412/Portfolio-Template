@@ -5,7 +5,9 @@ import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
 import markdownToHtml from "@/lib/markdownToHtml";
-
+import { Button } from "@/components/ui/button";
+import { ChevronLeftIcon } from "@radix-ui/react-icons";
+import { motion } from "framer-motion";
 export type Author = {
   name: string;
   picture: string;
@@ -40,6 +42,23 @@ function DynamicBlog({ blog }: { blog: PostType }) {
   return (
     <Layout>
       <div className="pt-8  max-w-3xl w-full blogs">
+        <div className="pb-3" onClick={() => router.push("/blogs")}>
+          <motion.div
+            className="flex gap-1 items-center cursor-pointer"
+            onClick={() => router.push("/blogs")}
+            whileHover={{
+              x: -3,
+              transition: {
+                type: "spring",
+                stiffness: 300,
+                damping: 10,
+              },
+            }}
+          >
+            <ChevronLeftIcon />
+            Go Back
+          </motion.div>
+        </div>
         <div className="text-[30px] font-[600] text-gray-900 mb-7">
           {blog.title}
         </div>
