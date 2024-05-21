@@ -12,37 +12,34 @@ type Tab = {
   content?: string | React.ReactNode | any;
 };
 
-export const Tabs = ({
-  tabs: propTabs,
-  containerClassName,
-  activeTabClassName,
-  tabClassName,
-  contentClassName,
-}: {
-  tabs: Tab[];
-  containerClassName?: string;
-  activeTabClassName?: string;
-  tabClassName?: string;
-  contentClassName?: string;
-}) => {
-  const [active, setActive] = useState<Tab>(propTabs[0]);
+const tabs = [
+  {
+    title: "About",
+    value: "/",
+  },
+  {
+    title: "Blogs",
+    value: "/blogs",
+  },
+  {
+    title: "Contact",
+    value: "/contact",
+  },
+];
+
+export const Tabs = () => {
+  const [active, setActive] = useState<Tab>(tabs[0]);
   const router = useRouter();
-  const [hovering, setHovering] = useState(false);
-  const moveSelectedTabToTop = (idx: number) => {
-    const newTabs = [...propTabs];
-    const selectedTab = newTabs.splice(idx, 1);
-    newTabs.unshift(selectedTab[0]);
-    setActive(newTabs[0]);
-  };
 
   const pathname = usePathname();
+
   useEffect(() => {
     if (pathname === "/") {
-      setActive(propTabs[0]);
+      setActive(tabs[0]);
     } else if (pathname.includes("blogs")) {
-      setActive(propTabs[1]);
+      setActive(tabs[1]);
     } else if (pathname === "/contact") {
-      setActive(propTabs[2]);
+      setActive(tabs[2]);
     }
   }, [pathname]);
 
@@ -50,20 +47,17 @@ export const Tabs = ({
     <>
       <div
         className={cn(
-          "flex flex-row items-center justify-start [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full gap-2",
-          containerClassName
+          "flex flex-row items-center justify-start [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full gap-2"
         )}
       >
-        {propTabs.map((tab, idx) => (
+        {tabs.map((tab, idx) => (
           <button
             key={tab.title}
             onClick={() => {
               router.push(tab.value);
-              moveSelectedTabToTop(idx);
+              setActive(tabs[idx]);
             }}
-            onMouseEnter={() => setHovering(true)}
-            onMouseLeave={() => setHovering(false)}
-            className={cn("relative px-3 py-1 rounded-md", tabClassName)}
+            className={cn("relative px-3 py-1 rounded-md")}
             style={{
               transformStyle: "preserve-3d",
             }}
@@ -73,12 +67,10 @@ export const Tabs = ({
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                 className={cn(
-                  "absolute inset-0 bg-gray-300 dark:bg-zinc-800 rounded-md ",
-                  activeTabClassName
+                  "absolute inset-0 bg-gray-300 dark:bg-zinc-800 rounded-md "
                 )}
               />
             )}
-
             <span className="relative block text-black dark:text-white">
               {tab.title}
             </span>

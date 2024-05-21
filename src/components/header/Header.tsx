@@ -1,22 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   GitHubLogoIcon,
   TwitterLogoIcon,
   LinkedInLogoIcon,
 } from "@radix-ui/react-icons";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { usePathname } from "next/navigation";
-import { Tabs } from "./Tabs";
 import { TabsDemo } from "./TabsDemo";
-
-let tabs = [
-  { id: "/", label: "About" },
-  { id: "/blogs", label: "Blogs" },
-  { id: "/contact", label: "Contact" },
-];
 
 function Header() {
   return (
