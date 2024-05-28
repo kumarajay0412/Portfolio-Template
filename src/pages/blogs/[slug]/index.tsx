@@ -2,12 +2,13 @@ import Layout from "@/components/Layout";
 import { useRouter } from "next/router";
 import React from "react";
 import fs from "fs";
+import path from "path";
 import matter from "gray-matter";
-import { join } from "path";
 import markdownToHtml from "@/lib/markdownToHtml";
 import { Button } from "@/components/ui/button";
 import { ChevronLeftIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
+
 export type Author = {
   name: string;
   picture: string;
@@ -41,7 +42,7 @@ function DynamicBlog({ blog }: { blog: PostType }) {
 
   return (
     <Layout>
-      <div className="pt-8  max-w-3xl w-full blogs">
+      <div className="pt-8 max-w-3xl w-full blogs">
         <div className="pb-3" onClick={() => router.push("/blogs")}>
           <motion.div
             className="flex gap-1 items-center cursor-pointer"
@@ -63,10 +64,7 @@ function DynamicBlog({ blog }: { blog: PostType }) {
           {blog.title}
         </div>
 
-        <div
-          // className={markdownStyles["markdown"]}
-          dangerouslySetInnerHTML={{ __html: htmlValue }}
-        />
+        <div dangerouslySetInnerHTML={{ __html: htmlValue }} />
       </div>
     </Layout>
   );
@@ -74,32 +72,37 @@ function DynamicBlog({ blog }: { blog: PostType }) {
 
 export default DynamicBlog;
 
-export const getServerSideProps = async (context: any) => {
-  const postsDirectory = join(process.cwd(), "_posts");
-
+export async function getStaticProps(context: any) {
+  const postsDirectory = path.join(process.cwd(), "_posts");
   const { slug } = context.params;
-  function getPostSlugs() {
-    return fs.readdirSync(postsDirectory);
-  }
 
   function getPostBySlug(slug: string) {
     const realSlug = slug.replace(/\.md$/, "");
-    const fullPath = join(postsDirectory, `${realSlug}.md`);
+    const fullPath = path.join(postsDirectory, `${realSlug}.md`);
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const { data, content } = matter(fileContents);
 
     return { ...data, slug: realSlug, content };
   }
 
-  function getAllPosts() {
-    const slugs = getPostSlugs();
-    const posts = slugs.map((slug) => getPostBySlug(slug));
-    return posts;
-  }
+  const blog = getPostBySlug(slug);
 
   return {
     props: {
-      blog: getPostBySlug(slug) as PostType,
+      blog,
     },
   };
-};
+}
+
+export async function getStaticPaths() {
+  const postsDirectory = path.join(process.cwd(), "_posts");
+  const slugs = fs
+    .readdirSync(postsDirectory)
+    .map((slug) => slug.replace(/\.md$/, ""));
+  const paths = slugs.map((slug) => ({ params: { slug } }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}

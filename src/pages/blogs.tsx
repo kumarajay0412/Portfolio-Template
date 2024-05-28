@@ -57,7 +57,7 @@ function Blog({ blog }: { blog: PostType[] }) {
 
 export default Blog;
 
-export const getServerSideProps = async (context: any) => {
+export const getStaticProps = async () => {
   const postsDirectory = join(process.cwd(), "_posts");
 
   function getPostSlugs() {
@@ -83,5 +83,35 @@ export const getServerSideProps = async (context: any) => {
     props: {
       blog: getAllPosts(),
     },
+    revalidate: 60, // Regenerate the page every 60 seconds
   };
 };
+
+// export const getServerSideProps = async (context: any) => {
+//   const postsDirectory = join(process.cwd(), "_posts");
+
+//   function getPostSlugs() {
+//     return fs.readdirSync(postsDirectory);
+//   }
+
+//   function getPostBySlug(slug: string) {
+//     const realSlug = slug.replace(/\.md$/, "");
+//     const fullPath = join(postsDirectory, `${realSlug}.md`);
+//     const fileContents = fs.readFileSync(fullPath, "utf8");
+//     const { data, content } = matter(fileContents);
+
+//     return { ...data, slug: realSlug, content };
+//   }
+
+//   function getAllPosts() {
+//     const slugs = getPostSlugs();
+//     const posts = slugs.map((slug) => getPostBySlug(slug));
+//     return posts;
+//   }
+
+//   return {
+//     props: {
+//       blog: getAllPosts(),
+//     },
+//   };
+// };
