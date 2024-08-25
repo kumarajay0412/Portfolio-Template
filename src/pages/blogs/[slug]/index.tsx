@@ -35,7 +35,6 @@ function DynamicBlog({ blog }: { blog: PostType }) {
     const content = await markdownToHtml(blog.content || "");
     setHtmlValue(content);
   }
-  console.log(blog);
   React.useEffect(() => {
     getMarkDown();
   }, [blog]);

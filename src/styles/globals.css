@@ -107,4 +107,8 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
+  pre {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
 }
