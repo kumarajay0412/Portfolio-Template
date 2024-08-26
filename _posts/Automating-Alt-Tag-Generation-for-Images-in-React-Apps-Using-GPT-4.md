@@ -122,45 +122,59 @@ async function generateAltText(imageSrc) {
 }
 
 async function processFile(filePath) {
-  let content = fs.readFileSync(filePath, "utf8");
-  const imgRegex = /<img(?!\s+alt=)[^>]*\ssrc=\{([^}]+)\}[^>]*>/g;
-  let modified = false;
-  content = content.replace(imgRegex, async (fullTag, src) => {
-    if (src.includes("generateS3Url")) {
-      //  if using cloudfront
-      const urlPattern = /'([^']+)'/;
-      const urlMatch = src.match(urlPattern);
-      if (urlMatch) {
-        src = `YOUR_CLOUDFRONT_URL_${urlMatch[1]}`;
+    let content = fs.readFileSync(filePath, 'utf8');
+    const imgRegex = /<img(?!\s+alt=)[^>]*\ssrc=\{([^}]+)\}[^>]*>/g;
+    let modified = false;
+    
+    const matches = content.match(imgRegex);
+    if (matches) {
+      for (const match of matches) {
+        const srcMatch = match.match(/src=\{([^}]+)\}/);
+        if (srcMatch) {
+          let src = srcMatch[1];
+          if (src.includes('generateS3Url')) {
+            const urlPattern = /'([^']+)'/;
+            const urlMatch = src.match(urlPattern);
+            if (urlMatch) {
+              src = `https://d4qgj78fzsl5j.cloudfront.net/${urlMatch[1]}`;
+            }
+          }
+          
+          const fileExtension = path.extname(src).toLowerCase().slice(1);
+          
+          if (allowedImageFormats.includes(fileExtension)) {
+            console.log("Processing image:", src);
+            const altText = await generateAltText(src);
+            console.log("Generated alt text:", altText);
+            
+            if (altText) {
+              modified = true;
+              const newTag = match.replace('/>', ` alt="${altText}"/>`);
+              content = content.replace(match, newTag);
+            }
+          } else {
+            console.log(`Skipping unsupported image format: ${fileExtension}`);
+          }
+        }
       }
     }
-
-    const fileExtension = path.extname(src).toLowerCase().slice(1);
-    if (!allowedImageFormats.includes(fileExtension)) {
-      console.log(`Skipping unsupported image format: ${fileExtension}`);
-      return fullTag;
+  
+    if (modified) {
+      fs.writeFileSync(filePath, content, 'utf8');
+      console.log(`Updated: ${filePath}`);
     }
-
-    const altText = await generateAltText(src);
-    if (altText) {
-      modified = true;
-      return fullTag.replace("/>", ` alt="${altText}"/>`);
-    }
-    return fullTag;
-  });
-
-  if (modified) {
-    fs.writeFileSync(filePath, content, "utf8");
-    console.log(`Updated: ${filePath}`);
   }
-}
 
 async function main() {
-  const srcDir = path.join(__dirname, "..", "src");
-  const tsxFiles = findTsxFiles(srcDir);
-  await Promise.all(tsxFiles.map(processFile));
-  console.log("Alt tag generation complete!");
-}
+    const srcDir = path.join(__dirname, '..', 'src');
+    const tsxFiles = findTsxFiles(srcDir);
+    
+    for (const file of tsxFiles) {
+      await processFile(file);
+    }
+    
+    console.log('Alt tag generation complete!');
+  }
 
 main().catch(console.error);
 ```
