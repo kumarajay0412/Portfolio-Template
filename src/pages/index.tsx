@@ -179,7 +179,7 @@ export default function Page() {
         <div className="text-lg my-7">Projects </div>
 
         <div className="grid  grid-cols-1 gap-3  md:grid-cols-3">
-          <motion.div
+          {/* <motion.div
             onClick={() =>
               window.open(
                 "https://github.com/kumarajay0412/Portfolio-Template",
@@ -236,7 +236,7 @@ export default function Page() {
             <div className="text-xs text-gray-500">
               Personal Portfolio website and Blogging Platform
             </div>
-          </motion.div>
+          </motion.div> */}
 
           <motion.div
             onClick={() => window.open("https://chartr.in/", "_blank")}
