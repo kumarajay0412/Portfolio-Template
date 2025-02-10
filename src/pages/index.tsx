@@ -14,7 +14,7 @@ export default function Page() {
     <Layout>
       <div className="pt-8 max-w-3xl w-full h-full">
         <div className="text-gray-500">
-          I&apos;m a Software Engineer passionate about building high-performance web and mobile applications. I love crafting beautiful and scalable digital experiences, whether it's React web apps or React Native mobile apps. I actively contribute to open-source projects like Plate Previously, I worked with{" "}
+          I&apos;m a Software Engineer passionate about building high-performance web and mobile applications. I love crafting beautiful and scalable digital experiences, whether it&apos;s React web apps or React Native mobile apps. I actively contribute to open-source projects like Plate Previously, I worked with{" "}
           <a
             className="hover:text-gray-600 cursor-pointer underline"
             href="https://gan.ai/"
