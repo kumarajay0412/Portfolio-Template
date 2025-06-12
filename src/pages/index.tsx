@@ -17,6 +17,13 @@ export default function Page() {
           I&apos;m a Software Engineer passionate about building high-performance web and mobile applications. I love crafting beautiful and scalable digital experiences, whether it&apos;s React web apps or React Native mobile apps. I actively contribute to open-source projects like Plate Previously, I worked with{" "}
           <a
             className="hover:text-gray-600 cursor-pointer underline"
+            href="https://adalat.ai/"
+          >
+            Adalat.ai
+          </a>
+          ,{" "}
+          <a
+            className="hover:text-gray-600 cursor-pointer underline"
             href="https://gan.ai/"
           >
             Gan.ai
@@ -48,6 +55,27 @@ export default function Page() {
         <div className="text-lg my-7 font-semibold">Experience </div>
 
         <ol className="pl-3">
+        <li className="border-l-2 border-gray-300">
+            <div className="flex flex-start">
+              <div className="w-6 h-6 flex items-center justify-center rounded-full bg-gray-500 -ml-[13px] border-[2px] border-gray-300"></div>
+              <div className="h-[100px] px-2 md:px-4 text-md text-gray-600">
+                Founding Engineer at{" "}
+                <a
+                  className="hover:text-gray-600 cursor-pointer underline"
+                  href="https://adalat.ai/"
+                >
+                  Adalat.ai
+                </a>
+                <span
+                  className={`bg-gray-200 p-1 rounded-md mx-3 font-semibold  text-sm text-gray-700 ${roboto.className}`}
+                >
+                  Remote
+                </span>
+                <br />
+                <div className="text-xs mt-2 ">Nov 2024 - Present</div>
+              </div>
+            </div>
+          </li>
           <li className="border-l-2 border-gray-300">
             <div className="flex flex-start">
               <div className="w-6 h-6 flex items-center justify-center rounded-full bg-gray-500 -ml-[13px] border-[2px] border-gray-300"></div>
