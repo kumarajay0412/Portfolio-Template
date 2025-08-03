@@ -204,9 +204,9 @@ export default function Page() {
           </li>
         </ol>
 
-        <div className="text-lg my-7">Projects </div>
+        {/* <div className="text-lg my-7">Projects </div> */}
 
-        <div className="grid  grid-cols-1 gap-3  md:grid-cols-3">
+        {/* <div className="grid  grid-cols-1 gap-3  md:grid-cols-3"> */}
           {/* <motion.div
             onClick={() =>
               window.open(
@@ -266,7 +266,7 @@ export default function Page() {
             </div>
           </motion.div> */}
 
-          <motion.div
+          {/* <motion.div
             onClick={() => window.open("https://chartr.in/", "_blank")}
             whileHover={{
               y: -10, // Move up by 10 pixels
@@ -369,8 +369,8 @@ export default function Page() {
             <div className="text-xs text-gray-500">
               A IOT based Smart Tap for water conservation and tracking of usage
             </div>
-          </motion.div>
-        </div>
+          </motion.div> */}
+        {/* </div> */}
       </div>
     </Layout>
   );
